@@ -7,5 +7,7 @@ setup:
 	brew install txn2/tap/kubefwd
 	brew install entr
 	brew install coreutils
+	brew install staticcheck
+	brew install kustomize
 cluster:
 	./scripts/kind-with-registry.sh
