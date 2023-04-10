@@ -1,5 +1,6 @@
 .PHONY: import
 setup:
+	brew update
 	brew install tilt
 	brew install kind
 	brew install kubectx
@@ -9,11 +10,16 @@ setup:
 	brew install coreutils
 	brew install staticcheck
 	brew install kustomize
+	brew tap hashicorp/tap
+	brew install vault
+	brew install datawire/blackbird/telepresence-arm64
+	brew install pgcli
+
 cluster:
 	./scripts/kind-with-registry.sh
 
 run:
-	go run main.go
+	go run app/services/sales-api/main.go
 
 build:
 	go build -ldflags "-X main.build=local"
@@ -69,3 +75,7 @@ kind-update: all kind-load kind-restart
 
 kind-describe:
 	kubectl describe pod -l app=service
+
+tidy:
+	go mod tidy
+	go mod vendor
