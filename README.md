@@ -14,10 +14,11 @@
 - Pods can have sidecars, e.g. a metrics sidecar that consumes metrics from the pod and decides where to send them.
 - You can divide and quota the resources in the pod, e.g. assigning CPU at a pod level or service level.
 - An App or CLI tool would exist outside the cluster but need access through raw tunnels to access the cluster.
-- Telepresence is a tool that keeps the networking in the local dev environment similar to the deployed environment.
+- Telepresence is a tool that keeps the networking in the local dev environment similar to the deployed environment. It gives us a VPN into the cluster.
 - "apply" is a request to k8s to asynchronously set our stuff up
 - Deployment defines what the pod needs to look like
 - Service defines the networking side of things, what's exposed or not, how things are named, etc.
+- Disable CGO for testing so you can test things without the OS layer on your machine (where CGO is enabled by default)
 
 Step 1.
 Bring the cluster up
