@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sales
+  namespace: sales-system
+spec:
+  selector:
+    matchLabels:
+      app: sales
+  replicas: 1 # specific to dev development
+  strategy:
+    type: Recreate # specific to dev development
+  template:
+    metadata:
+      labels:
+        app: sales
+    spec:
+      dnsPolicy: ClusterFirstWithHostNet
+      hostNetwork: true
+      containers:
+      - name: sales-api
+        resources:
+          limits:
+            cpu: "2000m" # Up to 2 full cores
+          requests:
+            cpu: "1000m" # Use 1 full cores

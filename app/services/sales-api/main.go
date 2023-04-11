@@ -7,6 +7,8 @@ import (
 	"runtime"
 	"syscall"
 
+	"go.uber.org/automaxprocs/maxprocs"
+
 	"github.com/librairica/ardan-labs-learning/foundation/logger"
 	"go.uber.org/zap"
 )
@@ -33,6 +35,11 @@ func run(log *zap.SugaredLogger) error {
 	// =========================================================================
 	// GOMAXPROCS
 
+	// sets go max procs based on k8s quotas defined on container resource limits
+	opt := maxprocs.Logger(log.Infof)
+	if _, err := maxprocs.Set(opt); err != nil {
+		return fmt.Errorf("maxprocs: %w", err)
+	}
 	log.Infow("startup", "GOMAXPROCS", runtime.GOMAXPROCS(0))
 	defer log.Infow("shutdown")
 

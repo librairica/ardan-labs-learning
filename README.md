@@ -19,6 +19,9 @@
 - Deployment defines what the pod needs to look like
 - Service defines the networking side of things, what's exposed or not, how things are named, etc.
 - Disable CGO for testing so you can test things without the OS layer on your machine (where CGO is enabled by default)
+- The go runtime is not kubernetes aware (why it doesn't realize cores limitations) -> use the uber pkg maxprocs
+- Make 4 CPUs the main benchmark, then see if it works with less (explains why at ~45:00 in Day 2 Hour 2).
+- The garbage collector takes 25% of your CPU.
 
 Step 1.
 Bring the cluster up
