@@ -56,10 +56,6 @@ TELEPRESENCE := docker.io/datawire/tel2:2.10.4
 KIND_CLUSTER := ardan-starter-cluster
 
 # will run a second pod with telepresence and connect via a tunnel
-dev-tel:
-	kind load docker-image $(TELEPRESENCE) --name $(KIND_CLUSTER)
-	telepresence --context=kind-$(KIND_CLUSTER) helm install 
-	telepresence --context=kind-$(KIND_CLUSTER) connect
 
 dev-up:
 	kind create cluster \
@@ -67,6 +63,11 @@ dev-up:
 		--name $(KIND_CLUSTER) \
 		--config zarf/k8s/dev/kind-config.yaml
 	kubectl wait --timeout=120s --namespace=local-path-storage --for=condition=Available deployment/local-path-provisioner
+	kind load docker-image $(TELEPRESENCE) --name $(KIND_CLUSTER)
+
+	telepresence --context=kind-$(KIND_CLUSTER) helm install
+	telepresence --context=kind-$(KIND_CLUSTER) connect
+
 
 dev-down:
 	telepresence quit -s
