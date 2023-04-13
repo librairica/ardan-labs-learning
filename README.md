@@ -32,6 +32,7 @@
 - A Go routine is an application-level thread.
 - Concurrency means out of order execution.
 - Helm creates the ambassador namespace.
+- Pull telepresence image: `docker pull docker.io/datawire/tel2:2.10.4`
 
 
 Step 1.
