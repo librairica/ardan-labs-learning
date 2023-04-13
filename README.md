@@ -27,7 +27,8 @@
 - Don't use the default server mux; it can expose your server publicly.
 - Parent go routines shouldn't terminate until child go routines have terminated (orphan go routines).
 - A parent go routine can assign ownership to a "foster parent" (probably their parent).
-
+- http://localhost:4000/debug/pprof/
+- http://localhost:4000/debug/vars is a metrics endpoint
 
 Step 1.
 Bring the cluster up
