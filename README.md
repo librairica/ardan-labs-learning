@@ -22,7 +22,11 @@
 - The go runtime is not kubernetes aware (why it doesn't realize cores limitations) -> use the uber pkg maxprocs
 - Make 4 CPUs the main benchmark, then see if it works with less (explains why at ~45:00 in Day 2 Hour 2).
 - The garbage collector takes 25% of your CPU.
-
+- A mux (or router) is a piece of code that registers handler functions to a specific URL and matches routes to handlers.
+- pprof source code: https://cs.opensource.google/go/go/+/master:src/net/http/pprof/pprof.go
+- Don't use the default server mux; it can expose your server publicly.
+- Parent go routines shouldn't terminate until child go routines have terminated (orphan go routines).
+- A parent go routine can assign ownership to a "foster parent" (probably their parent).
 
 
 Step 1.
