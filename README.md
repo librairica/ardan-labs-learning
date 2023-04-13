@@ -29,6 +29,10 @@
 - A parent go routine can assign ownership to a "foster parent" (probably their parent).
 - http://localhost:4000/debug/pprof/
 - http://localhost:4000/debug/vars is a metrics endpoint
+- A Go routine is an application-level thread.
+- Concurrency means out of order execution.
+- Helm creates the ambassador namespace.
+
 
 Step 1.
 Bring the cluster up
