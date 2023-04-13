@@ -23,5 +23,15 @@
 - Make 4 CPUs the main benchmark, then see if it works with less (explains why at ~45:00 in Day 2 Hour 2).
 - The garbage collector takes 25% of your CPU.
 
+
+
 Step 1.
 Bring the cluster up
+
+Step 2.
+Do configuration
+
+Bill's rules for configuration:
+1. Read in configuration in main.go
+2. All configuration should have default values for dev environment (except personal key)
+3. The service should allow for --help to show how configuration can be overridden
