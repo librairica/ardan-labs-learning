@@ -1,5 +1,14 @@
 # ardan-labs-learning
 
+## RJ's Favorite Bill Quotes
+- "Keep things simple until you can't"
+- "Determine the purpose of the logs"
+- "Always return concrete types"
+- "Prototype driven development, data oriented design"
+- "If you don't understand the data you don't understand the problem"
+- "Comments are code - treat them as such"
+- "We don't make things easy TO DO, we make things easy TO UNDERSTAND"
+
 ## My Notes Day 2
 - It's important to distinguish the line between devops and developer.
 - A cluster defines the compute environment our services live in.
